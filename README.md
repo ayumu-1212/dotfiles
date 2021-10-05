@@ -1,15 +1,16 @@
 # dotfiles
 ```
  $ cd #ホームディレクトリに移動
- $ git clone https://github.com/ayumu-1212/dotfiles.git 
+ $ git clone https://github.com/ayumu-1212/dotfiles.git
 ```
 
 ## .vimrcセッティング
 - dein.vim(プラグインパッケージ管理ツール)インストール
 ```
-$ mkdir -p ~/.vim/bundle #ディレクトリが存在しない場合
+$ mkdir -p ~/.cache/dein
 $ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-$ sh ./installer.sh ~/.vim/bundle
+$ sh ./installer.sh ~/.cache/dein
+$ rm ./installer.sh
 ```
 
 - シンボリックリンク作成

@@ -94,12 +94,8 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
     call dein#add('vim-jp/vimdoc-ja')
 
     " 非同期補完導入
-    call dein#add('Shougo/deoplete.nvim')
+    "call dein#add('Shougo/deoplete.nvim')
 
-    if !has('nvim')
-      call dein#add('roxma/nvim-yarp')
-      call dein#add('roxma/vim-hug-neovim-rpc')
-    endif
 
     " Required:
     call dein#end()
