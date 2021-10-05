@@ -1,13 +1,13 @@
 "setting
 "基本設定
-set encoding=utf-8
-scriptencoding utf-8
+set encoding=utf-8 " エンコードするときの文字コード
+scriptencoding utf-8 " .vimrcの文字コード
 set fileencoding=utf-8 " 保存時の文字コード
 set fileencodings=ucs-boms,utf-8,euc-jp,cp932 " 読み込み時の文字コードの自動判別. 左側が優先される
 set fileformats=unix,dos,mac " 改行コードの自動判別. 左側が優先される
 set ambiwidth=double " □や○文字が崩れる問題を解決
 set noswapfile " 勝手にswapファイルを開くのを防ぎます
-set hidden " バッファ保存せずに移動しようとした場合に!をつけなくても移動できる, またargsの移動も隠しファイルにする
+set hidden " バッファ保存せずに移動しようとした場合に!をつけなくても移動できる, またargsの移動も隠しフ ァイルにする
 
 set expandtab " タブ入力を複数の空白入力に置き換える
 set tabstop=2 " 画面上でタブ文字が占める幅
@@ -23,7 +23,8 @@ set hlsearch " 検索結果をハイライト
 
 set nobackup " バックアップファイルを作成しない
 
-set visualbell " ビープ音をすべて視覚表示(ビジュアルベル)に置き換える
+set visualbell t_vb=
+set noerrorbells "エラーメッセージの表示時にビープを鳴らさない
 
 set showcmd " 入力中のコマンドを右下に表示する
 
@@ -123,6 +124,9 @@ map <C-n> :NERDTreeToggle<CR>
 " Ctrl-nでNERDTreeを起動
 noremap <C-n> :<C-u>NERDTreeToggle<CR>
 
+" 隠しファイルを表示
+let NERDTreeShowHidden = 1
+
 " フォルダアイコンの表示をON
 " let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
@@ -137,45 +141,57 @@ augroup MyXML
   autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o><ESC><<<S-a>
 augroup END
 
-" $B%G%U%)%k%H$G%D%j!<$rI=<($5$;$k(B
+" デフォルトでツリーを表示させる
 let g:nerdtree_tabs_open_on_console_startup=1
 
-" $BB>$N%P%C%U%!$r$9$Y$FJD$8$?;~$K(BNERDTree$B$,3+$$$F$$$?$i(BNERDTree$B$b0l=o$KJD$8$k!#(B
+" ファイルを閉じるときにvim NERDtreeを閉じる
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-"molokai$B$N%+%i!<%F!<%^(B
+" VimのカラースキームをMolokaiに変更
 colorscheme molokai
 
-"$B2hLLJ,3d$K4X$9$k%7%g!<%H%+%C%H(B
+" コマンドを簡単なものにマッピング
+" 空コマンド
 nnoremap s <Nop>
+" 画面間移動 下
 nnoremap sj <C-w>j
+" 画面間移動 上
 nnoremap sk <C-w>k
+" 画面間移動 右
 nnoremap sl <C-w>l
+" 画面間移動 左
 nnoremap sh <C-w>h
+" 画面自体を移動 下
 nnoremap sJ <C-w>J
+" 画面自体を移動 上
 nnoremap sK <C-w>K
+" 画面自体を移動 右
 nnoremap sL <C-w>L
+" 画面自体を移動 左
 nnoremap sH <C-w>H
+" 次のタブへ移動
 nnoremap sn gt
+" 前のタブへ移動
 nnoremap sp gT
+" 同じ行数で左右に移動
 nnoremap sr <C-w>r
-nnoremap s= <C-w>=
-nnoremap sw <C-w>w
-nnoremap so <C-w>_<C-w>|
-nnoremap sO <C-w>=
+" 次のバッファへ移動
 nnoremap sN :<C-u>bn<CR>
+" 前のバッファへ移動
 nnoremap sP :<C-u>bp<CR>
+" タブの新規作成
 nnoremap st :<C-u>tabnew<CR>
-nnoremap sT :<C-u>Unite tab<CR>
+" 画面を上下に分割
 nnoremap ss :<C-u>sp<CR>
+" 画面を左右に分割
 nnoremap sv :<C-u>vs<CR>
+" 画面を閉じる(バッファは残り、保存はしない)
 nnoremap sq :<C-u>q<CR>
-nnoremap sQ :<C-u>bd<CR>
-nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
-nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
+" 画面を閉じる(バッファも閉じる、保存が必要な場合は有無を聞かれる)
+nnoremap sQ :<C-u>sN<CR>
 
 
-" ctrl+y -/= $B$G(Berb$B$N%+%C%3$rI=<((B
+" Ctrl-yのあとに-/=を押すとerbフォーマット挿入
 inoremap <C-y>- <%  %><Left><Left><Left>
 inoremap <C-y>= <%=  %><Left><Left><Left>
 
@@ -188,5 +204,3 @@ noremap <up> gk
 
 " ctrl-oで下に空行挿入
 nnoremap <C-o> mzo<Esc>"_cc<Esc>`z
-
-

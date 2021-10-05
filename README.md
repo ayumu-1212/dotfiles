@@ -1,7 +1,7 @@
 # dotfiles
 ```
  $ cd #ホームディレクトリに移動
- $ git clone https://github.com/coacer/dotfiles.git
+ $ git clone https://github.com/ayumu-1212/dotfiles.git 
 ```
 
 ## .vimrcセッティング
