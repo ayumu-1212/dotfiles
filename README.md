@@ -1,7 +1,21 @@
 # dotfiles
+## dotfilesのclone
 ```
- $ cd #ホームディレクトリに移動
+ $ cd ~ #ホームディレクトリに移動
  $ git clone https://github.com/ayumu-1212/dotfiles.git
+```
+
+## vim・tmuxのインストール
+```
+ $ suto apt install vim
+ $ sudo apt install tmux
+```
+
+## シンボリックリンク作成
+```
+ $ ln -s ~/dotfiles/.bashrc ~/.bashrc
+ $ ln -s ~/dotfiles/.vimrc ~/.vimrc
+ $ ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ```
 
 ## .vimrcセッティング
@@ -11,11 +25,6 @@ $ mkdir -p ~/.cache/dein
 $ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 $ sh ./installer.sh ~/.cache/dein
 $ rm ./installer.sh
-```
-
-- シンボリックリンク作成
-```
- $ ln -s ~/dotfiles/.vimrc ~/.vimrc
 ```
 
 - プラグインのインストール
