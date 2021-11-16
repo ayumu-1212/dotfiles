@@ -165,6 +165,14 @@ nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 " 画面自体を移動 左
 nnoremap sH <C-w>H
+" 画面の縦幅を 増加
+nnoremap s+ <C-w>5+
+" 画面の縦幅を 減少
+nnoremap s- <C-w>5-
+" 画面の横幅を 増加
+nnoremap s> <C-w>5>
+" 画面の横幅を 減少
+nnoremap s< <C-w>5<
 " 次のタブへ移動
 nnoremap sn gt
 " 前のタブへ移動
