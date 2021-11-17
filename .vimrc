@@ -194,6 +194,14 @@ nnoremap sq :<C-u>q<CR>
 " 画面を閉じる(バッファも閉じる、保存が必要な場合は有無を聞かれる)
 nnoremap sQ :<C-u>sN<CR>
 
+" eを押しながら上下に移動させる
+" ref: https://vim.fandom.com/wiki/Moving_lines_up_or_down
+inoremap ek <Esc>:m .-2<CR>==gi
+inoremap ej <Esc>:m .+1<CR>==gi
+vnoremap ek :m '<-2<CR>gv=gv
+vnoremap ej :m '>+1<CR>gv=gv
+nnoremap ej :m .+1<CR>==
+nnoremap ek :m .-2<CR>==
 
 " Ctrl-yのあとに-/=を押すとerbフォーマット挿入
 inoremap <C-y>- <%  %><Left><Left><Left>
